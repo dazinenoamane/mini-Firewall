@@ -1,39 +1,51 @@
-Mini Firewall (Python)
+# 🛡️ Mini Firewall (Python)
 
-A simple Python-based firewall that inspects incoming packets at the network layer and applies user-defined rules on TCP/UDP traffic. Designed for educational and testing purposes.
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/) 
 
-Features
 
-Protocol Filtering: Supports TCP (6) and UDP (17).
+A lightweight Python firewall for intercepting TCP/UDP network packets and applying user-defined rules. Designed for **learning network security, packet inspection, and firewall logic**.
 
-Port-Based Rules: Allow or deny packets based on destination port.
+---
 
-Logging: All actions are logged to firewall_log.txt.
+## 🔹 Features
 
-Interactive Rule Input: Prompt-based setup for protocol, destination port, and action (allow, deny, or log).
+- **Protocol Filtering:** Supports TCP (6) and UDP (17).  
+- **Port-Based Rules:** Allow or deny packets based on destination port.  
+- **Logging:** Logs all actions in `firewall_log.txt`.  
+- **Interactive Rules:** Prompt-based setup for protocol, port, and action (`allow`, `deny`, or `log`).  
+- **Real-Time Packet Handling:** Uses `NetfilterQueue` for live packet interception.  
 
-Netfilter Integration: Uses NetfilterQueue to intercept and handle packets in real-time.
+---
 
-Usage
+## ⚙️ Installation
 
-Install dependencies:
+1. Clone the repository:
 
+```bash
+git clone https://github.com/yourusername/mini-firewall.git
+cd mini-firewall
+```
+2. Install dependencies:
+
+```bash
 pip install NetfilterQueue
-
-
-Run the script with root privileges (required for packet interception):
-
+```
+Note: Root privileges are required to intercept packets. Run the firewall script:
+```bash
 sudo python3 mini_firewall.py
+```
+Follow the interactive prompts to configure rules:
 
+Protocol (6 for TCP, 17 for UDP)
 
-Input rules as prompted (protocol, destination port, action).
+Destination port (0–65535)
 
-Firewall logs actions in firewall_log.txt.
+Action (allow, deny, or log)
 
-Limitations
+## Limitations
+-Supports IPv4 only.
 
-Only supports IPv4.
+-Basic TCP/UDP inspection, no deep packet inspection.
 
-Basic TCP/UDP inspection; no deep packet inspection.
+-Intended for educational purposes only, not production security.
 
-Designed for learning purposes, not production-grade security.
